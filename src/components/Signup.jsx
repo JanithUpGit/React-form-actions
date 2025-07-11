@@ -7,8 +7,7 @@ import {
   hasMinLength,
 } from "../util/validation";
 
-export default function Signup() {
-  function signupAction(prevFormState, formData) {
+function signupAction(prevFormState, formData) {
     const enteredEmail = formData.get("email");
     const password = formData.get("password");
     const confirmPassword = formData.get("confirm-password");
@@ -67,9 +66,12 @@ export default function Signup() {
       };
     }
 
-    // If no errors, you might want to return a success state or null for errors
     return { errors: null };
   }
+
+
+export default function Signup() {
+  
 
   const [formState, formAction] = useActionState(signupAction, {
     errors: null,
